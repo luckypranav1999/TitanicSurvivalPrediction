@@ -1,0 +1,6 @@
+@TitanicAPI_HostAddress = http://localhost:5224
+
+GET {{TitanicAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
