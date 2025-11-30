@@ -11,16 +11,6 @@ The solution includes:
 
 ---
 
-## 🏗 Project Architecture
-
-```mermaid
-flowchart LR
-A[HTML + JS Form] -->|POST JSON| B[.NET Minimal API]
-B -->|Execute| C[Python Script]
-C -->|model.predict()| D[Logistic Regression Model (.pkl)]
-D -->|Prediction + Probability| C
-C -->|JSON result| B
-B -->|Response| A
 
 
 Unlike typical Titanic ML notebooks, this project demonstrates full production-style deployment:
