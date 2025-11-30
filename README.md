@@ -1,9 +1,27 @@
-# TitanicSurvivalPrediction
-End-to-end Machine Learning Web Application predicting Titanic passenger survival probability. Includes ML model training (Logistic Regression), model serialization, .NET 8 Minimal API backend, Python inference, and real-time UI integration for live predictions.
-🚢 Titanic Survival Prediction – End-to-End Machine Learning Web App
-🎯 Project Goal
+# 🚢 Titanic Survival Prediction | ML + .NET + Python + Web UI
 
-This project predicts the probability of a Titanic passenger surviving using a trained Machine Learning model deployed with a .NET 8 Minimal API and connected to a frontend UI for real-time prediction.
+This project predicts whether a passenger would survive the Titanic disaster using a Machine Learning model built with **Logistic Regression**.  
+The solution includes:
+
+- 🧠 **ML Model** trained on Titanic dataset (Kaggle)
+- 🐍 **Python backend script** with joblib model loading
+- 🌐 **.NET Minimal API** to execute Python & return predictions
+- 💻 **HTML + JS Frontend UI** to collect input and display result
+- 🔗 **Full end-to-end integration** using `fetch()` + CORS
+
+---
+
+## 🏗 Project Architecture
+
+```mermaid
+flowchart LR
+A[HTML + JS Form] -->|POST JSON| B[.NET Minimal API]
+B -->|Execute| C[Python Script]
+C -->|model.predict()| D[Logistic Regression Model (.pkl)]
+D -->|Prediction + Probability| C
+C -->|JSON result| B
+B -->|Response| A
+
 
 Unlike typical Titanic ML notebooks, this project demonstrates full production-style deployment:
 
