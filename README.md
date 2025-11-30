@@ -9,9 +9,6 @@ The solution includes:
 - 💻 **HTML + JS Frontend UI** to collect input and display result
 - 🔗 **Full end-to-end integration** using `fetch()` + CORS
 
----
-
-
 
 Unlike typical Titanic ML notebooks, this project demonstrates full production-style deployment:
 
@@ -34,30 +31,8 @@ Live prediction with probability and visualization
 ✔ Elegant frontend UI with probability bar and colored result card
 ✔ End-to-end system like real production ML deployment
 
-🏗 Architecture
-                 ┌──────────────────────────┐
-                 │  Frontend UI (HTML/CSS/JS)│
-                 │  User inputs passenger data │
-                 └──────────────┬─────────────┘
-                                │ POST JSON
-                                ▼
-                     ┌────────────────────────┐
-                     │  .NET 8 Minimal API     │
-                     │  /api/predict endpoint  │
-                     └──────────────┬──────────┘
-                                    │ args
-                                    ▼
-                          ┌──────────────────────┐
-                          │  Python (predict.py) │
-                          │ Loads model.pkl       │
-                          │ Predict + probability │
-                          └───────────┬───────────┘
-                                      │ JSON
-                                      ▼
-                         ┌──────────────────────────┐
-                         │  Frontend displays result│
-                         │  + probability bar       │
-                         └──────────────────────────┘
+Architecture:
+HTML/JavaScript Frontend → sends POST request → .NET Minimal API → triggers Python script → loads ML model (.pkl) → performs prediction & probability → returns JSON response → UI displays result
 
 🛠 Tech Stack
 Layer	Technology
@@ -67,13 +42,18 @@ Backend	.NET 8 Minimal API
 Frontend	HTML, CSS, JavaScript
 Deployment	Local (Cloud deployment coming soon)
 📁 Project Structure
-📦 TitanicMLApp
-├── UI.html                  # Frontend UI
-├── Program.cs               # .NET backend API
-├── predict.py               # Python inference script
-├── titanic_model.pkl        # Trained ML model
-├── Titanic.ipynb            # Model training notebook
-└── README.md                # Documentation
+TitanicSurvivalPrediction/
+│
+├── TitanicAPI/
+│   ├── Program.cs              # .NET Backend API
+│   ├── predict.py              # Python ML execution script
+│   ├── titanic_model.pkl       # Saved ML model
+│   ├── Titanic.ipynb           # Notebook used for training
+│   ├── UI.html                 # Frontend
+│   ├── ...
+│
+└── README.md
+
 
 📌 UI Interface – Prediction Form
 📌 Prediction Output – Probability bar
